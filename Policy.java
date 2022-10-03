@@ -26,14 +26,14 @@ public final class Policy {
         this.policyID = policyID;
     }
 
-    public static Policy getHolderName(String holderName) {
+    public static Policy getInstance(String holderName, Integer policyID) {
         Policy result = instance;
         if (result != null) {
             return result;
         }
         synchronized(Policy.class) {
             if (instance == null) {
-                instance = new Policy(holderName);
+                instance = new Policy(holderName, policyID);
             }
             return instance;
         }
